@@ -1,0 +1,20 @@
+using System;
+using ILRuntime.Runtime.Intepreter;
+
+namespace {$Namespace}
+{
+    public class LC_AdaptorHelper
+    {
+        public static void Init(ILRuntime.Runtime.Enviorment.AppDomain app)
+        {
+            if (app == null)
+            {
+                // should log error
+                return;
+            }
+
+            // adaptor register 
+            {$AdaptorInit}
+        }
+    }
+}

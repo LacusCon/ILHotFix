@@ -1,0 +1,8 @@
+{
+    "GameHall": [
+        "SelectScene",
+        "AllInOne",
+        "Spine/AllInOne/Armature"
+    ],
+    "Test":["Test1"]
+}

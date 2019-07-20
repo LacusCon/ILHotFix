@@ -1,0 +1,3 @@
+
+            <#void_start#>app.DelegateManager.RegisterMethodDelegate<{$argsType}>();<#void_end#>
+            <#return_start#>app.DelegateManager.RegisterFunctionDelegate<{$argsType}>();<#return_end#>

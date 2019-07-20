@@ -1,0 +1,23 @@
+using System;
+using ILRuntime.Runtime.Intepreter;
+
+namespace {$Namespace}
+{
+    class LC_Helper
+    {
+        public static void Init(ILRuntime.Runtime.Enviorment.AppDomain app)
+        {
+            if (app == null)
+            {
+                // should log error
+                return;
+            }
+
+            // delegate register 
+            {$DelegateRegInit}
+
+            // delegate convertor
+            {$DelegateConvertInit}
+        }
+    }
+}

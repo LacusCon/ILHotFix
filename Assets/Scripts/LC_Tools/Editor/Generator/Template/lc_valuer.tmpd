@@ -1,0 +1,30 @@
+
+             {$static} IMethod m{$MethodNameNum};
+            {$modifier} {$static} {$override} {$returnType} {$MethodName}
+            {
+<#get_start#>
+                 get{
+                    if(m{$MethodNameNum} == null)
+                    {
+                            m{$MethodNameNum} = instanceType.GetMethod("get_{$MethodName}");
+                    }
+                    if (m{$MethodNameNum} != null)
+                    {
+                        return ({$returnType})appdomain.Invoke(m{$MethodNameNum}, instance);
+                    }
+                        {$returnDefault}
+                 }
+<#get_end#>
+<#set_start#>
+             set{
+                    if(m{$MethodNameNum} == null)
+                    {
+                        m{$MethodNameNum} = instanceType.GetMethod("set_{$MethodName}");
+                    }
+                    if (m{$MethodNameNum} != null)
+                    {
+                        appdomain.Invoke(m{$MethodNameNum}, instance, value);
+                    }
+                }
+<#set_end#>
+            }

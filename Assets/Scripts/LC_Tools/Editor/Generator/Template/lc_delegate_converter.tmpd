@@ -1,0 +1,9 @@
+			            
+            app.DelegateManager.RegisterDelegateConvertor<{$DelegateName}>((action) =>
+            {
+                return new {$DelegateName}(({$args}) =>
+                {
+                    <#return_start#>return ((Func<{$argsType}{$symbol}{$returnType}>)action)({$args});<#return_end#>
+                    <#void_start#>((Action {$angle_left}{$argsType}{$angle_right})action)({$args});<#void_end#>
+                });
+            });

@@ -1,0 +1,21 @@
+
+             {$static} IMethod m{$MethodNameNum};
+             {$static} bool is{$MethodNameNum}Invoking = false;
+            {$modifier} {$static} {$override} void {$MethodName}{$Generic}({$args})
+            {
+                if (m{$MethodNameNum} == null)
+                {
+                    m{$MethodNameNum} = instanceType.GetMethod("{$MethodName}", {$args_count});
+                }
+
+                if (m{$MethodNameNum} != null && !is{$MethodNameNum}Invoking)
+                {
+                    is{$MethodNameNum}Invoking = true;
+                    appdomain.Invoke(m{$MethodNameNum}, instance {$comma}{$args_no_type});
+                    is{$MethodNameNum}Invoking = false;
+                }
+                else
+                {
+                    base.{$MethodName}({$args_no_type});
+                }
+            }

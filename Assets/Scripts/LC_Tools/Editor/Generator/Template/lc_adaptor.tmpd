@@ -1,0 +1,74 @@
+using ILRuntime.CLR.Method;
+using ILRuntime.Runtime.Enviorment;
+using ILRuntime.Runtime.Intepreter;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using System.Reflection;
+using System.Runtime.Serialization;
+using UnityEngine.EventSystems;
+
+namespace {$Namespace}
+{
+    public class {$ClassName}Adaptor : CrossBindingAdaptor
+    {
+        public override Type BaseCLRType
+        {
+            get
+            {
+                return typeof({$ClassName});
+            }
+        }
+
+        public override Type AdaptorType
+        {
+            get
+            {
+                return typeof(Adaptor);
+            }
+        }
+
+        public override object CreateCLRInstance(Enviorment.AppDomain appdomain, ILTypeInstance instance)
+        {
+            return new Adaptor(appdomain, instance);
+        }
+
+        internal class Adaptor : {$ClassName}, CrossBindingAdaptorType
+        {
+            private static Enviorment.AppDomain appdomain;
+            private ILTypeInstance instance;
+            private static ILRuntime.CLR.TypeSystem.ILType instanceType;
+            
+			public Adaptor()
+            {
+
+            }
+
+            public Adaptor(Enviorment.AppDomain in_appdomain, ILTypeInstance in_instance)
+            {
+				instanceType = in_instance.Type;
+                appdomain = in_appdomain;
+                instance = in_instance;
+            }
+
+			public Enviorment.AppDomain AppDomain { get { return appdomain; } set { appdomain = value; } }
+            public ILTypeInstance ILInstance
+            {
+                get { return instance; }
+                set
+                {
+                    instance = value;
+                    if (value != null)
+                    {
+                        instanceType = value.Type;
+                    }
+                }
+            }
+
+            {$MethodArea}
+        }
+   }
+}

@@ -1,0 +1,14 @@
+
+            {$static} IMethod m{$MethodNameNum};
+            {$modifier} {$static} {$override} {$returnType} {$MethodName}{$Generic}({$args})
+            {
+                if(m{$MethodNameNum} == null)
+                {
+                    m{$MethodNameNum} = instanceType.GetMethod("{$MethodName}", {$args_count});
+                }
+                if (m{$MethodNameNum} != null)
+                {
+                    return ({$returnType})appdomain.Invoke(m{$MethodNameNum}, instance {$comma}{$args_no_type});
+                }
+                {$returnDefault}
+            }

@@ -1,0 +1,17 @@
+{
+    "group": "AppUpdate",
+    "libs": [],
+    "frameworks": [],
+    "headerpaths": [],
+    "files":   [        
+        "AppUpdate/UpdateApp.h",
+        "AppUpdate/UpdateApp.mm"
+                ],
+    "folders": [],
+    "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$"],
+    "compiler_flags": [],
+    "linker_flags": [
+                        "-ObjC -all_load"
+                    ]
+
+}

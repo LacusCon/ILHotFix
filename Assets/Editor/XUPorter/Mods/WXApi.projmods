@@ -1,0 +1,31 @@
+{
+    "group": "WXApi",
+    "libs": [
+                "libz.tbd", 
+                "libc++.tbd",
+                "libsqlite3.0.tbd"
+            ],
+    "frameworks": [
+                     "SystemConfiguration.framework",
+                    "CoreTelephony.framework"
+                  ],
+    "headerpaths": [],
+    "files":   [
+        "WXApi/libWeChatSDK.a",
+        "WXApi/WechatAuthSDK.h",
+        "WXApi/WXApi.h",
+        "WXApi/WXApiObject.h",
+        "WXApi/Custom/IosTool.h",
+        "WXApi/Custom/IosTool.mm",
+        "WXApi/Custom/Constant.h",
+        "WXApi/Custom/WXApiManager.h",
+        "WXApi/Custom/WXApiManager.m"
+                ],
+    "folders": [],
+    "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$"],
+    "compiler_flags": [],
+    "linker_flags": [
+                        "-ObjC -all_load"
+                    ]
+
+}
